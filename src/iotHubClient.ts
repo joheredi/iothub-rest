@@ -39,7 +39,7 @@ import {
   PrivateEndpointConnectionsListParameters,
   PrivateEndpointConnectionsGetParameters,
   PrivateEndpointConnectionsUpdateParameters,
-  PrivateEndpointConnectionsDeleteParameters,
+  PrivateEndpointConnectionsDeleteParameters
 } from "./parameters";
 import {
   OperationsList200Response,
@@ -126,7 +126,7 @@ import {
   PrivateEndpointConnectionsDelete200Response,
   PrivateEndpointConnectionsDelete202Response,
   PrivateEndpointConnectionsDelete204Response,
-  PrivateEndpointConnectionsDeletedefaultResponse,
+  PrivateEndpointConnectionsDeletedefaultResponse
 } from "./responses";
 import { getClient, ClientOptions, Client } from "@azure-rest/core-client";
 import { KeyCredential, TokenCredential } from "@azure/core-auth";
@@ -690,10 +690,11 @@ export default function IotHubClient(
   options: ClientOptions = {}
 ): IotHubClientClient {
   const baseUrl = options.baseUrl ?? "https://management.azure.com";
+  options.apiVersion = "2021-03-03-preview";
   options = {
     ...options,
     credentials: {
-      scopes: ["https://management.azure.com/.default"],
+      scopes: ["https://management.azure.com/.default"]
     }
   };
 

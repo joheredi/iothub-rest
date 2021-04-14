@@ -5,6 +5,7 @@
   "main": "esm/index.js",
   "types": "esm/index.d.ts",
   "scripts": {
+    "regenerate": "autorest --reset && autorest --typescript --use=https://aka.ms/azsdk/typescript/rlc --rest-level-client=true https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/specification/iothub/resource-manager/readme.md --credential-scopes=https://management.azure.com/.default --add-credentials=true --output-folder=. --generate-metadata=false",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc --build && npm run extract-api",
     "extract-api": "mkdirp ./review && api-extractor run --local"
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.13.2",
     "@types/node": "^14.14.22",
+    "autorest": "latest",
     "dotenv": "^8.2.0",
     "mkdirp": "^1.0.4",
     "prettier": "^2.2.1",

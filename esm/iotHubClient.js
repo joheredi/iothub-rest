@@ -6,6 +6,7 @@ const core_client_1 = require("@azure-rest/core-client");
 function IotHubClient(credentials, options = {}) {
     var _a;
     const baseUrl = (_a = options.baseUrl) !== null && _a !== void 0 ? _a : "https://management.azure.com";
+    options.apiVersion = "2021-03-03-preview";
     options = Object.assign(Object.assign({}, options), { credentials: {
             scopes: ["https://management.azure.com/.default"]
         } });
